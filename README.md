@@ -44,8 +44,7 @@ electron 6.1.7
 electron 5.0.10
 ```
 
-## 贡献者名单 
+## 交流 
 ```
-pengzq
-tangyd
+有问题欢迎咨询 QQ群: 606173512
 ```
