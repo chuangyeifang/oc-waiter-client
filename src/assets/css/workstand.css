@@ -1,0 +1,138 @@
+
+* {
+  font-family: "Microsoft YaHei";
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body,
+html,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 12px;
+  color: #000;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.noselect {
+  -webkit-user-select: none;
+}
+
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+/** form style start */
+.oc-form {
+  width: 100%;
+  height: 100%;
+}
+.oc-form .el-radio__label,
+.oc-form .el-radio,
+.oc-form .el-radio--medium.is-bordered .el-radio__label {
+  font-size: 12px;
+}
+
+.el-pagination .el-select .el-input .el-input__inner,
+.el-pagination .el-input__inner,
+.oc-form .el-input__inner {
+  height: 25px;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #9c9c9c;
+  margin-right: 15px;
+}
+.oc-form .el-input__inner {
+  width: 220px;
+}
+.el-pagination .el-select .el-input .el-input__inner:hover,
+.el-pagination .el-input__inner:hover,
+.oc-form .el-input__inner:hover {
+  border-bottom: 1px solid #000;
+}
+
+.oc-form .el-input {
+  width: auto;
+}
+
+.oc-form input,
+.oc-form textarea {
+  margin: 0;
+  padding: 3px 8px 0 8px;
+  outline: 0;
+}
+
+.oc-form input {
+  border: 0;
+  border-bottom: 1px solid #9c9c9c;
+}
+
+.oc-form input:hover {
+  border-bottom: 1px solid #000;
+}
+
+.oc-form textarea {
+  resize: none;
+}
+
+.oc-form .oc-form-label {
+  font-size: 12px;
+  padding-top: 5px;
+  padding-right: 8px !important;
+  line-height: 20px;
+}
+.oc-form .oc-form-label-right {
+  font-size: 12px;
+  padding-top: 5px;
+  padding-right: 8px !important;
+  line-height: 20px;
+  min-width: 65px;
+  text-align: right;
+}
+
+.oc-form .oc-form-items-row,
+.oc-form .oc-form-items-column {
+  display: flex;
+  margin-bottom: 8px;
+}
+.oc-form .oc-form-items-row {
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+.oc-form .oc-form-items-column {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.oc-form .oc-form-tip {
+  font-size: 12px;
+  color: #a0a0a0;
+  margin-top: 15px;
+}
+/** form style stop */
+
+/** element ui global css*/
+.el-timeline-item__timestamp.is-bottom {
+  margin-top: 5px;
+  font-size: 12px;
+}
+/** element ui global css */
+
+/**global scroll style */
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-thumb {
+  width: 2px;
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

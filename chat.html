@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>在线客服</title>
+    <link href="./images/icon.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="./css/chat.css" />
+    <link rel="stylesheet" href="./css/emoji.css" />
+    <link rel="stylesheet" href="./css/viewer.min.css" />
+</head>
+
+<body>
+    <div class="service-panel">
+        <!-- head -->
+        <div class="header" id="logoFlag">
+            <div class="logo"></div>
+            <h3>OC-IM 在线客服</h3>
+        </div>
+        <!-- main -->
+        <div class="service-body clearfix">
+            <!-- left -->
+            <div class="left-main">
+                <div class="chat-service-status clearfix"><img src="./images/msg-tip.png" /><span id="chat_service_status_msg"></span></div>
+                <!-- show chat -->
+                <div class="show-chat clearfix" id="chatDiv">
+                    <div id="hisMsgDiv">
+                        <div class="chat-wrap" id="msgDiv">
+                        </div>
+                    </div>
+                    <!-- 评价成功 -->
+                    <div class="msg-panel evaluate ell" id="opinionSuccess" style="display:none;"><i class="icons"></i>评价成功！</div>
+                    <!-- 重复评价提醒 -->
+                    <div class="msg-panel evaluate ell" id="opinionRepeat" style="display:none;"><i class="icons"></i>您已对客服作出评价！</div>
+                </div>
+                <!--toolbar-->
+                <div class="btn-toolbar clearfix">
+                    <ul class="tool-btn-group">
+                        <li id="set-face"><a href="javascript:;" data-pop="face-pop"><i class="face">表情</i>表情</a></li>
+                        <li id="file-btn"><a href="javascript:;" id="set-file" data-pop="face-file"><i class="upload">发送图片</i>图片</a></li>
+                        <li id="manyidu"><a href="javascript:;" id="set-evaluate" data-pop="evaluate-pop"><i class="evaluate">满意度评价</i>满意度</a></li>
+                    </ul>
+                    <!-- toolbar pop -->
+                    <!-- 表情选项 -->
+                    <div id="emoji_container" class="emoji-container" style="width: 427px;height: 144px;position: absolute;top: -151px;left: -24px; ">
+                        <input type='hidden' class="val">
+                    </div>
+
+                    <!-- 上传图片附件选项 -->
+                    <div>
+                        <!-- 上传区域 -->
+                        <div id="looyu_enclosure" class="toolbar-pop face-file"></div>
+                        <!-- 上传进度条-->
+                        <div id="transFileLayer2" style="display: none;"></div>
+                        <!--上传的表单-->
+                        <form style="display: none" id="submit_form" method="post" action="/chat/loadpic.do" target="iframepost" enctype="multipart/form-data">
+                            <input type="file" name="file" id="upload_file" accept=".jpg,.gif,.jpeg,.png" />
+                            <!-- 添加上传文件 -->
+                            <input type="text" name="cid" value="" />
+                        </form>
+                    </div>
+                    <!-- 满意度评价 -->
+                    <div class="toolbar-pop evaluate-pop" id="opinionDiv">
+                        <div class="evaluation-head">
+                            <a href="javascript:;" class="icons close-tool"></a>
+                            您对当前客服的服务满意吗？
+                        </div>
+                        <div class="evaluation-body">
+                            <div class="choise-eva">
+                                <label><input name="evaluation" type="radio" value="4" checked="checked" />非常满意 </label>
+                                <label><input name="evaluation" type="radio" value="3" />满意 </label>
+                                <label><input name="evaluation" type="radio" value="2" />一般 </label>
+                                <label><input name="evaluation" type="radio" value="1" />不满意 </label>
+                                <label><input name="evaluation" type="radio" value="0" />非常不满意 </label>
+                            </div>
+                            <dl class="suggest clearfix">
+                                <dt>建议：</dt>
+                                <dd><textarea name="" id="opinion_desp"></textarea></dd>
+                            </dl>
+                            <div class="sub-evabtn">
+                                <a href="javascript:;" class="cancel">取消</a>
+                                <a href="javascript:;" class="submit" id="opinion_submit">提交</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- chat area -->
+                <div class="chat-area">
+                    <form>
+                        <textarea id="message_area" name="Memo" rows="7" cols="20" placeholder="请输入消息(300字内)..."></textarea>
+                        <ul class="box-ul" id="boxUl">
+                        </ul>
+                    </form>
+                </div>
+                <!-- send btns -->
+                <div class="send-btns">
+                    <div class="btn-group">
+                        <a href="javascript:;" class="send-chat" id="send_msg_btn" style="text-align:center;">发送</a>
+                    </div>
+                </div>
+            </div>
+            <!-- right -->
+            <div class="right-slider">
+                <div class="tab-title">
+                    <a href="javascript:;" class="tab-btn" id="goodsDetail">商品详情</a>
+                    <a href="javascript:;" class="tab-btn" id="tabFaq">常见问题</a>
+                </div>
+                <div class="tab-body">
+                    <!-- 产品信息 -->
+                    <div class="tab-list pro-info" id="divProductInfo" style="display: none;">
+                        <div class="pro-img">
+                            <a href="" id="pDetailUrl" target="_blank">
+                            </a>
+                        </div>
+                        <h6 id="pro_name"></h6>
+                        <p class="gray" id="pro_brief"></p>
+                        <p class="red" id="price"></p>
+                        <p id="mediaPrice"></p>
+                        <a href="" id="pro_url" target="_blank"></a>
+                    </div>
+                    <!-- FAQ -->
+                    <div class="tab-list service-qa" style="font-size: 18px; display: none;" id="divFaq">
+                        <ul id="topFaq">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ay-mask">
+        <div class="ay-container">
+            <h3 class="ay-h3">发送图片</h3>
+            <div class="ay-box">
+                <div id="showPic"></div>
+            </div>
+            <div id="submitOrCancel" class="submitOrCancel">
+                <button onclick="outter.sendPic(picSrc)">发送</button>
+                <button onclick="closeItme($('.ay-mask'))">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lib/underscore-1.8.2.js"></script>
+    <script type="text/javascript" src="js/oc/oc-config.js"></script>
+    <script type="text/javascript" src="js/emoji.js"></script>
+    <script type="text/javascript" src="js/oc/oc-common.js"></script>
+    <script type="text/javascript" src="js/oc/oc-chat-resolver.js"></script>
+    <script type="text/javascript" src="js/oc/oc-http-poll.js"></script>
+    <script type="text/javascript" src="js/oc/oc-websocket.js"></script>
+    <script type="text/javascript" src="js/oc/chat.js"></script>
+</body>
+
+</html>
